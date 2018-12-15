@@ -64,7 +64,7 @@ End Points Details:
 - Request Params:
 ```json
 {
- “authentication_token”: "9643bdab5f61b8396e2dfa832aa1073385d8fbb6",
+ "authentication_token": "9643bdab5f61b8396e2dfa832aa1073385d8fbb6",
   "list": {
     "title": "todos"
   }
@@ -84,7 +84,7 @@ End Points Details:
 - Request Params:
 ```json
 {
- “authentication_token”: "9643bdab5f61b8396e2dfa832aa1073385d8fbb6",
+ "authentication_token": "9643bdab5f61b8396e2dfa832aa1073385d8fbb6",
   "list": {
     "title": "todos"
   }
