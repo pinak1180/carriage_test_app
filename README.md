@@ -1,4 +1,4 @@
-**Details About the Endpoints: **
+**Details About the Endpoints:**
 
 End Points Details:
 
