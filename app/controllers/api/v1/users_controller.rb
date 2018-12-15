@@ -3,14 +3,14 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def index
     @users = User.select(:id, :role, :username, :email)
-    render json: @users, instance_options: { token: true }
+    render_json_object(object: @users)
   end
 
   def update
     if @current_user.update(user_params)
-      render json: @current_user
+      render_json_object(object: @current_user)
     else
-      render json: ({ result: { messages: @current_user.errors.full_messages.join(', '), rstatus: 0, errorcode: 404 } }.to_json)
+      render_json_object_error(object: @current_user)
     end
   end
 

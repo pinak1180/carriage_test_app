@@ -2,6 +2,9 @@ class AuthenticationToken < ApplicationRecord
   ## ASSOCIATIONS ##
   belongs_to :user
 
+  ## Validations ##
+  validates :token, :user_id, presence: true
+
   ## Scopes ##
   scope :current_authentication_token_for_user, ->(user_id, token) { joins(:user).where('users.id =? and token = ?', user_id, token) }
 

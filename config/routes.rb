@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       delete  'logout/:authentication_token', to: 'sessions#destroy',     as: :logout
 
       ## Users ##
-      resources :users, only: [:update, :index]
+      resources :users, only: [:update, :index], format: :json
 
       ## Lists ##
       resources :lists do

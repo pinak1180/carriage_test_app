@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :assigned_lists, through: :assignee_lists, source: 'list'
   has_many :cards, dependent: :destroy
 
+  ## Scope ##
+  scope :find_by_email_or_username, ->(auth){ where('email = ? OR username = ?', auth, auth) }
+
   ## Validations ##
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
@@ -24,7 +27,7 @@ class User < ApplicationRecord
 
   def self.authenticate_user_with_auth(email, password)
     return nil unless email.present? || password.present?
-    u = User.find_by_email(email) || User.find_by(username: email)
+    u = User.find_by_email_or_username(email).first
     (u.present? && u.valid_password?(password)) ? u : nil
   end
 end
